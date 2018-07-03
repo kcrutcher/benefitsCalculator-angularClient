@@ -1,0 +1,29 @@
+<p-dialog [modal]="true" [header]="title" [(visible)]="display" [responsive]="true" [closeOnEscape]="false" [closable]="false">
+  <form [formGroup]="employeeForm" class="k-form">
+    <app-full-name [personForm]="employeeForm.controls.employee"></app-full-name>
+    <br>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <span>Dependents</span>
+        <span class="glyphicon glyphicon-plus pull-right"(click)="OnAddDependent('', '')"></span>
+      </div>
+      <div class="panel-body">
+        <div formArrayName="dependents">
+          <div *ngFor="let dependent of employeeForm.controls.dependents.controls; let i=index" class="panel panel-default">
+            <div class="panel-heading">
+              <span>Dependent {{i + 1}}</span>
+              <span class="glyphicon glyphicon-remove pull-right"(click)="OnRemoveDependent(i)"></span>
+            </div>
+            <div class="panel-body" [formGroupName]="i">
+              <app-full-name [personForm]="employeeForm.controls.dependents.controls[i]"></app-full-name>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <p-footer>
+    <button type="button" class="btn btn-primary" (click)="OnAccept()" [disabled]="!employeeForm.valid">OK</button>
+    <button type="button" class="btn btn-primary" (click)="OnCancel()">Cancel</button>
+  </p-footer>
+</p-dialog>

@@ -14,6 +14,30 @@ export class EmployeeRemoteService implements IEmployeeService {
   constructor(private http: HttpClient) {
   }
 
+  public addItem(employee: IEmployee) {
+    if (employee == null) {
+      return;
+    }
+
+    return this.http.post<IEmployee>(CONFIG.urls.server + CONFIG.urls.apiEmployee, employee, this.httpOptions);
+  }
+
+  public updateItem(employee: IEmployee) {
+    if (employee == null) {
+      return;
+    }
+
+    return this.http.put<IEmployee>(CONFIG.urls.server + CONFIG.urls.apiEmployee + employee.id, employee, this.httpOptions);
+  }
+
+  public deleteItem(employee: IEmployee) {
+    if (employee == null) {
+      return;
+    }
+
+    return this.http.delete(CONFIG.urls.server + CONFIG.urls.apiEmployee + employee.id);
+  }
+
   public getItems() {
     return this.http.get<IEmployee[]>(CONFIG.urls.server + CONFIG.urls.apiEmployee);
   }

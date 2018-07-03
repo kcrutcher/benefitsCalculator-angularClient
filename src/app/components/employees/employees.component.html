@@ -30,3 +30,10 @@
         </tr>
     </ng-template>
 </p-table>
+<br>
+<button class="btn btn-primary" (click)="onAddClick()">Add</button>
+<button class="btn btn-primary" (click)="onEditClick()" [disabled]="!isValidForm()">Edit</button>
+<button class="btn btn-primary" (click)="onDeleteClick()" [disabled]="!isValidForm()">Delete</button>
+
+<app-employee-edit (employeeUpdatedEvent)="employeeUpdated($event)"></app-employee-edit>
+<app-employee-add (employeeAddedEvent)="employeeAdded($event)"></app-employee-add>
