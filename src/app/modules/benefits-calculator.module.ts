@@ -10,7 +10,9 @@ import { EmployeeEditComponent } from '../components/employee/employee-edit.comp
 import { EmployeeAddComponent } from '../components/employee/employee-add.component';
 import { FullNameComponent } from '../components/person/full-name.component';
 
-import { EmployeeRemoteService } from '../services/employee-remote.service';
+import { EmployeeRemoteService } from '../services/employee/employee-remote.service';
+import { LoggingService } from '../services/logging/logging.service';
+import { ConsoleLoggingService } from '../services/logging/console-logging.service';
 
 import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
@@ -39,6 +41,7 @@ const appRoutes: Routes = [
     ],
     providers: [
         { provide: 'IEmployeeService', useClass: EmployeeRemoteService },
+        { provide: LoggingService, useClass: ConsoleLoggingService },
     ],
     exports: [
         EmployeeBenefitsComponent,

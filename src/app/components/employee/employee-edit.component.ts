@@ -2,7 +2,8 @@ import { Component, OnInit, Inject, Output, EventEmitter } from '@angular/core';
 import { Validators, FormGroup, FormControl, FormBuilder, FormArray } from '@angular/forms';
 
 import { IEmployee, Employee } from '../../entities/employee';
-import { IEmployeeService } from '../../services/iemployee.service';
+import { IEmployeeService } from '../../services/employee/iemployee.service';
+import { LoggingService } from '../../services/logging/logging.service';
 import { IPerson } from '../../entities/person';
 
 @Component({
@@ -23,6 +24,7 @@ export class EmployeeEditComponent implements OnInit {
   @Output() employeeUpdatedEvent = new EventEmitter<IEmployee>();
 
   constructor(@Inject('IEmployeeService') private employeeService: IEmployeeService,
+              private loggingService: LoggingService,
               private formBuilder: FormBuilder) {
   }
 
@@ -77,6 +79,7 @@ export class EmployeeEditComponent implements OnInit {
       this.display = false;
       this.ResetForm();
     }, error => {
+      this.loggingService.logError(error);
     });
   }
 

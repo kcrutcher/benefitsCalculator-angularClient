@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewChild, Inject } from '@angular/core';
 
-import { IEmployeeService } from '../../services/iemployee.service';
+import { IEmployeeService } from '../../services/employee/iemployee.service';
 import { IEmployee } from '../../entities/employee';
 import { EmployeeEditComponent } from '../employee/employee-edit.component';
 import { EmployeeAddComponent } from '../employee/employee-add.component';
+import { LoggingService } from '../../services/logging/logging.service';
 
 @Component({
   selector: 'app-employees',
@@ -24,7 +25,8 @@ export class EmployeesComponent implements OnInit {
   @ViewChild(EmployeeEditComponent) editEmployeeComponent: EmployeeEditComponent;
   @ViewChild(EmployeeAddComponent) addEmployeeComponent: EmployeeAddComponent;
 
-  constructor(@Inject('IEmployeeService') private employeeService: IEmployeeService) {
+  constructor(@Inject('IEmployeeService') private employeeService: IEmployeeService,
+              private loggingService: LoggingService) {
   }
 
   ngOnInit() {
@@ -35,7 +37,7 @@ export class EmployeesComponent implements OnInit {
     this.employeeService.getItems()
       .subscribe(
         (employees: IEmployee[]) => this.employees = employees,
-        (error) => console.error(error)
+        (error) => this.loggingService.logError(error)
       );
   }
 
@@ -56,6 +58,7 @@ export class EmployeesComponent implements OnInit {
     this.employeeService.deleteItem(this.selectedEmployee).subscribe(() => {
       this.deleteEmployee(selectedEmployeeId);
     }, error => {
+      this.loggingService.logError(error);
     });
   }
 
