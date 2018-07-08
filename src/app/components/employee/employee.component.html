@@ -9,7 +9,7 @@
       </div>
       <div class="panel-body">
         <div formArrayName="dependents">
-          <div *ngFor="let dependent of employeeForm.controls.dependents.controls; let i=index" class="panel panel-default">
+          <div *ngFor="let dependent of employeeForm['controls'].dependents['controls']; let i=index" class="panel panel-default">
             <div class="panel-heading">
               <span>Dependent {{i + 1}}</span>
               <span class="glyphicon glyphicon-remove pull-right"(click)="OnRemoveDependent(i)"></span>
