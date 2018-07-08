@@ -4,5 +4,6 @@ export const CONFIG = {
       // server: 'http://localhost:61134/',
       apiEmployee: 'api/employees/',
       apiPayroll: 'api/payroll/',
+      apiPayrollSettings: 'api/payrollsettings',
     }
   };

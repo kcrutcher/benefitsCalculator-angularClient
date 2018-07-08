@@ -36,7 +36,7 @@ export class EmployeesComponent implements OnInit {
   onGet() {
     this.employeeService.getItems()
       .subscribe(
-        (employees: IEmployee[]) => this.employees = employees,
+        (employees) => this.employees = employees,
         (error) => this.loggingService.logError(error)
       );
   }
