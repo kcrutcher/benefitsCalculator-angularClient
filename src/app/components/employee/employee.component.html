@@ -23,7 +23,11 @@
     </div>
   </form>
   <p-footer>
+      <button type="button" class="btn btn-secondary pull-left" [disabled]="!employeeForm.valid" (click)="OnPreviewPayroll($event,op)">Preview Payroll</button>
     <button type="button" class="btn btn-primary" (click)="OnAccept()" [disabled]="!employeeForm.valid">OK</button>
     <button type="button" class="btn btn-primary" (click)="OnCancel()">Cancel</button>
   </p-footer>
 </p-dialog>
+<p-overlayPanel #op [showCloseIcon]="true">
+    <app-payroll-preview [payroll]="payroll"></app-payroll-preview>
+</p-overlayPanel>

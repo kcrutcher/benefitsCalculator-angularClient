@@ -5,6 +5,10 @@ import { IEmployee, Employee } from '../../entities/employee';
 import { IEmployeeService } from '../../services/employee/iemployee.Service';
 import { LoggingService } from '../../services/logging/logging.service';
 import { IPerson } from '../../entities/person';
+import { IPayrollService } from '../../services/payroll/ipayroll.service';
+import { IPayroll } from '../../entities/payroll';
+
+import { OverlayPanel } from 'primeng/overlaypanel';
 
 @Component({
   selector: 'app-employee-add',
@@ -19,10 +23,13 @@ export class EmployeeAddComponent implements OnInit {
   firstNameControl: FormControl = new FormControl('', Validators.required);
   lastNameControl: FormControl = new FormControl('', Validators.required);
   dependentsControls: FormArray = this.formBuilder.array([]);
+  payroll: IPayroll;
+  overlayPanel: OverlayPanel;
 
   @Output() employeeAddedEvent = new EventEmitter<IEmployee>();
 
   constructor(@Inject('IEmployeeService') private employeeService: IEmployeeService,
+              @Inject('IPayrollService') private payrollService: IPayrollService,
               private loggingService: LoggingService,
               private formBuilder: FormBuilder) {
   }
@@ -71,6 +78,21 @@ export class EmployeeAddComponent implements OnInit {
   public OnCancel() {
     this.display = false;
     this.ResetForm();
+  }
+
+  public OnPreviewPayroll(event, overlayPanel: OverlayPanel) {
+    const employeeToPreview = this.GetEmployeeFromForm();
+
+    if (employeeToPreview) {
+      this.payrollService.previewPayroll(employeeToPreview).subscribe(data => {
+        this.payroll = data;
+        this.overlayPanel = overlayPanel;
+        overlayPanel.toggle(event);
+      }, error => {
+        this.loggingService.logError(error);
+        this.payroll = null;
+      });
+    }
   }
 
   private GetEmployeeFromForm() {

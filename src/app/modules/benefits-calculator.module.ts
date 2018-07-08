@@ -9,17 +9,21 @@ import { EmployeesComponent } from '../components/employees/employees.component'
 import { EmployeeEditComponent } from '../components/employee/employee-edit.component';
 import { EmployeeAddComponent } from '../components/employee/employee-add.component';
 import { FullNameComponent } from '../components/person/full-name.component';
+import { PayrollPreviewComponent } from '../components/payroll/payroll-preview/payroll-preview.component';
 
 import { EmployeeRemoteService } from '../services/employee/employee-remote.service';
+import { PayrollRemoteService } from '../services/payroll/payroll-remote.service';
 import { LoggingService } from '../services/logging/logging.service';
 import { ConsoleLoggingService } from '../services/logging/console-logging.service';
 
 import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
 
 const appRoutes: Routes = [
     { path: '', redirectTo: 'employees', pathMatch: 'full' },
     { path: 'employees', component: EmployeesComponent },
+    // TODO need route for payroll?
   ];
 
 @NgModule({
@@ -31,6 +35,7 @@ const appRoutes: Routes = [
         TableModule,
         DialogModule,
         BrowserAnimationsModule,
+        OverlayPanelModule,
     ],
     declarations: [
         EmployeeBenefitsComponent,
@@ -38,9 +43,11 @@ const appRoutes: Routes = [
         EmployeeEditComponent,
         EmployeeAddComponent,
         FullNameComponent,
+        PayrollPreviewComponent,
     ],
     providers: [
         { provide: 'IEmployeeService', useClass: EmployeeRemoteService },
+        { provide: 'IPayrollService', useClass: PayrollRemoteService },
         { provide: LoggingService, useClass: ConsoleLoggingService },
     ],
     exports: [

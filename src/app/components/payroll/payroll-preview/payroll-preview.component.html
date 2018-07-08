@@ -1,0 +1,24 @@
+<div>
+    <p>Yearly Gross Salary: ${{payroll?.salary?.yearly}}</p>
+    <p>Yearly Total Deductions: ${{payroll?.benefitPackage?.netCost}}</p>
+    <p>Yearly Net Salary: ${{payroll?.netYearlySalary}}</p>
+    <p>Pay Interval: {{getPayIntervalString()}}</p>
+    <table class ='table' >
+        <thead>
+        <tr>
+            <th>Pay Period</th>
+            <th>Gross Pay</th>
+            <th>Deductions</th>
+            <th>Net Pay</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let paySchedule of payroll?.paySchedule">
+            <td>{{paySchedule.period}}</td>
+            <td>${{paySchedule.grossPay}}</td>
+            <td>${{paySchedule.deductions}}</td>
+            <td>${{paySchedule.netPay}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
