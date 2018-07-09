@@ -1,7 +1,8 @@
-<h1>Employees</h1>
-<button class="btn btn-primary" (click)="onAddClick()">Add</button>
-<button class="btn btn-primary" (click)="onEditClick()" [disabled]="!isValidForm()">Edit</button>
-<button class="btn btn-primary" (click)="onDeleteClick()" [disabled]="!isValidForm()">Delete</button>
+<div class="btn-group">
+    <button class="btn btn-primary" (click)="onAddClick()">Add</button>
+    <button class="btn btn-primary" (click)="onEditClick()" [disabled]="!isValidForm()">Edit</button>
+    <button class="btn btn-primary" (click)="onDeleteClick()" [disabled]="!isValidForm()">Delete</button>
+</div>
 <p-table #dt [columns]="cols" [value]="employees" selectionMode="single" [(selection)]="selectedEmployee" [paginator]="true" [rows]="10">
     <ng-template pTemplate="caption">
         <div style="text-align: right">        

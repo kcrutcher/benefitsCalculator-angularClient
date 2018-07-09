@@ -23,9 +23,11 @@
     </div>
   </form>
   <p-footer>
-      <button type="button" class="btn btn-secondary pull-left" [disabled]="!employeeForm.valid" (click)="OnPreviewPayroll($event,op)">Preview Payroll</button>
-    <button type="button" class="btn btn-primary" (click)="OnAccept()" [disabled]="!employeeForm.valid">OK</button>
-    <button type="button" class="btn btn-primary" (click)="OnCancel()">Cancel</button>
+    <button type="button" class="btn btn-info pull-left" [disabled]="!employeeForm.valid" (click)="OnPreviewPayroll($event,op)">Preview Payroll</button>
+    <div class="btn-group">
+      <button type="button" class="btn btn-primary" (click)="OnAccept()" [disabled]="!employeeForm.valid">OK</button>
+      <button type="button" class="btn btn-primary" (click)="OnCancel()">Cancel</button>
+    </div>
   </p-footer>
 </p-dialog>
 <p-overlayPanel #op [showCloseIcon]="true">
