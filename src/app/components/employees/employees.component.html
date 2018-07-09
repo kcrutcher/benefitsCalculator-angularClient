@@ -3,7 +3,8 @@
     <button class="btn btn-primary" (click)="onEditClick()" [disabled]="!isValidForm()">Edit</button>
     <button class="btn btn-primary" (click)="onDeleteClick()" [disabled]="!isValidForm()">Delete</button>
 </div>
-<p-table #dt [columns]="cols" [value]="employees" selectionMode="single" [(selection)]="selectedEmployee" [paginator]="true" [rows]="10">
+<p-table #dt [columns]="cols" [value]="employees" selectionMode="single" [(selection)]="selectedEmployee" 
+    [paginator]="true" [rows]="10" sortField="id" sortOrder="-1">
     <ng-template pTemplate="caption">
         <div style="text-align: right">        
             <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
