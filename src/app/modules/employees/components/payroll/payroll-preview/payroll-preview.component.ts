@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
-import { IPayroll } from '../../../entities/payroll';
-import { payInterval } from '../../../entities/globals';
+import { IPayroll } from '../../../../../entities/payroll';
+import { payInterval } from '../../../../../entities/globals';
 
 @Component({
   selector: 'app-payroll-preview',

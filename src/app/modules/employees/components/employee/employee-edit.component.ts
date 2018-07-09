@@ -1,11 +1,11 @@
 import { Component, OnInit, Inject, Output, EventEmitter } from '@angular/core';
 import { Validators, FormGroup, FormControl, FormBuilder, FormArray } from '@angular/forms';
 
-import { IEmployee, Employee } from '../../entities/employee';
+import { IEmployee, Employee } from '../../../../entities/employee';
 import { IEmployeeService } from '../../services/employee/iemployee.service';
-import { LoggingService } from '../../services/logging/logging.service';
-import { IPerson } from '../../entities/person';
-import { IPayroll } from '../../entities/payroll';
+import { LoggingService } from '../../../../services/logging/logging.service';
+import { IPerson } from '../../../../entities/person';
+import { IPayroll } from '../../../../entities/payroll';
 import { IPayrollService } from '../../services/payroll/ipayroll.service';
 
 import { OverlayPanel } from 'primeng/overlaypanel';
