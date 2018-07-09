@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { IEmployee } from '../../entities/employee';
+import { IEmployee } from '../../../../entities/employee';
 import { IPayrollService } from './ipayroll.service';
-import { CONFIG } from '../../entities/app.constants';
-import { IPayroll } from '../../entities/payroll';
+import { CONFIG } from '../../../../entities/app.constants';
+import { IPayroll } from '../../../../entities/payroll';
 
 @Injectable()
 export class PayrollRemoteService implements IPayrollService {

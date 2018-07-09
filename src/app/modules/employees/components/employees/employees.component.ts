@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild, Inject } from '@angular/core';
 
 import { IEmployeeService } from '../../services/employee/iemployee.service';
-import { IEmployee } from '../../entities/employee';
+import { IEmployee } from '../../../../entities/employee';
 import { EmployeeEditComponent } from '../employee/employee-edit.component';
 import { EmployeeAddComponent } from '../employee/employee-add.component';
-import { LoggingService } from '../../services/logging/logging.service';
+import { LoggingService } from '../../../../services/logging/logging.service';
 
 @Component({
   selector: 'app-employees',

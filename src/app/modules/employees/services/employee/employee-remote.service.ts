@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { IEmployeeService } from './iemployee.Service';
-import { IEmployee } from '../../entities/employee';
-import { CONFIG } from '../../entities/app.constants';
+import { IEmployee } from '../../../../entities/employee';
+import { CONFIG } from '../../../../entities/app.constants';
 
 @Injectable()
 export class EmployeeRemoteService implements IEmployeeService {
