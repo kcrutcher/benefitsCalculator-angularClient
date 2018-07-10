@@ -67,7 +67,8 @@ export class EmployeesComponent implements OnInit {
   }
 
   employeeAdded($event) {
-    this.employees.push($event);
+    this.employees.unshift($event);
+    this.selectedEmployee = $event;
   }
 
   employeeUpdated($event: IEmployee) {
