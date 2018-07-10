@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
+# Deployment details
+
+- CI/CD currently deployed to: http://benefitscalculator.azurewebsites.net/
+
 # Running locally connected to deployed Web API
 
 1) Clone the repo
