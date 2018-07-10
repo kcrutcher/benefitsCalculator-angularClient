@@ -1,4 +1,4 @@
-<p-dialog [modal]="true" [header]="title" [(visible)]="display" [responsive]="true" [closeOnEscape]="false" [closable]="false" [contentStyle]="{'max-height':'400px'}">
+<p-dialog #employeeDialog [modal]="true" [header]="title" [(visible)]="display" [responsive]="true" [closeOnEscape]="false" [closable]="false" [contentStyle]="{'max-height':'400px'}">
   <form [formGroup]="employeeForm" class="k-form">
     <app-full-name [personForm]="employeeForm.controls.employee"></app-full-name>
     <div class="panel panel-default">
@@ -29,6 +29,6 @@
     </div>
   </p-footer>
 </p-dialog>
-<p-overlayPanel #op [showCloseIcon]="true">
-    <app-payroll-preview [payroll]="payroll"></app-payroll-preview>
+<p-overlayPanel #op [showCloseIcon]="true" for="employeeDialog">
+  <app-payroll-preview [payroll]="payroll"></app-payroll-preview>
 </p-overlayPanel>

@@ -6,7 +6,9 @@ import { payInterval } from '../../../../../entities/globals';
 @Component({
   selector: 'app-payroll-preview',
   templateUrl: './payroll-preview.component.html',
-  styleUrls: []
+  styles: [
+    '#payPeriods {height:350px; overflow-y:auto}',
+  ]
 })
 export class PayrollPreviewComponent {
 
