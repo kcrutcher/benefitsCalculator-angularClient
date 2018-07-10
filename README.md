@@ -2,25 +2,23 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
-## Development server
+# Running locally connected to deployed Web API
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1) Clone the repo
+2) In the root folder of the repo (benefitsCalculator-angularClient), execute the following using a command prompt:
+a. npm install
+b. npm start
+3) Navigate to `http://localhost:4200`
 
-## Code scaffolding
+# Running locally with a locally running Web API
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+1) Clone the repo
+2) Have the Web API running and note the port number
+3) Update the CONFIG.urls.server setting (@ benefitsCalculator-angularClient/src/app/entities/app.constants.ts) to match the Web API localhost port number.
+4) In the root folder of the repo (benefitsCalculator-angularClient), execute the following using a command prompt:
+a. npm install
+b. npm start
+5) Navigate to `http://localhost:4200`
 
 ## Further help
 
