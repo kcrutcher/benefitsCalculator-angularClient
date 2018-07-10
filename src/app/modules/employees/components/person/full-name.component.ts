@@ -4,7 +4,9 @@ import { FormGroup, AbstractControl } from '@angular/forms';
 @Component({
   selector: 'app-full-name',
   templateUrl: './full-name.component.html',
-  styleUrls: []
+  styles: ['.form-inline label { margin-right: 5px; }',
+           '.form-inline input { margin-bottom: 5px; }'
+    ]
 })
 export class FullNameComponent {
   @Input() personForm: FormGroup;
